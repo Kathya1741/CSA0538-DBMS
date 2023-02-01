@@ -1,0 +1,36 @@
+mysql> create database userlogin;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| dbms_c             |
+| mysql              |
+| performance_schema |
+| student            |
+| student1           |
+| students           |
+| test               |
+| userlogin          |
++--------------------+
+9 rows in set (0.00 sec)
+
+mysql> use student1;
+Database changed
+mysql> create table student1(regno int(10),name char(20),gender char(10),DOB int(10),mobileno int(10),city char(20));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> desc student1;
++----------+----------+------+-----+---------+-------+
+| Field    | Type     | Null | Key | Default | Extra |
++----------+----------+------+-----+---------+-------+
+| regno    | int(10)  | YES  |     | NULL    |       |
+| name     | char(20) | YES  |     | NULL    |       |
+| gender   | char(10) | YES  |     | NULL    |       |
+| DOB      | int(10)  | YES  |     | NULL    |       |
+| mobileno | int(10)  | YES  |     | NULL    |       |
+| city     | char(20) | YES  |     | NULL    |       |
++----------+----------+------+-----+---------+-------+
+6 rows in set (0.01 sec)
