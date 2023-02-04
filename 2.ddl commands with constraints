@@ -1,0 +1,93 @@
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| course             |
+| dept               |
+| faculty            |
+| mysql              |
+| performance_schema |
+| student            |
+| test               |
++--------------------+
+8 rows in set (0.00 sec)
+
+mysql> use student;
+Database changed
+mysql> alter table student add primary key(reg_no);
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> use faculty;
+Database changed
+mysql> alter table faculty;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> alter table faculty add primary key(fac_no);
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> use dept;
+Database changed
+mysql> alter table dept add primary key(dept_no);
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> use course;
+Database changed
+mysql> alter table course add primary key(course_no);
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> use student;
+Database changed
+mysql> desc student;
++--------+----------+------+-----+---------+-------+
+| Field  | Type     | Null | Key | Default | Extra |
++--------+----------+------+-----+---------+-------+
+| name   | char(20) | YES  |     | NULL    |       |
+| reg_no | int(10)  | NO   | PRI | 0       |       |
+| gender | char(20) | YES  |     | NULL    |       |
+| dept   | char(20) | YES  |     | NULL    |       |
++--------+----------+------+-----+---------+-------+
+4 rows in set (0.02 sec)
+
+mysql> use faculty;
+Database changed
+mysql> desc faculty;
++--------+----------+------+-----+---------+-------+
+| Field  | Type     | Null | Key | Default | Extra |
++--------+----------+------+-----+---------+-------+
+| name   | char(20) | YES  |     | NULL    |       |
+| fac_no | int(10)  | NO   | PRI | 0       |       |
+| gender | char(20) | YES  |     | NULL    |       |
+| dept   | char(20) | YES  |     | NULL    |       |
++--------+----------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> use dept;
+Database changed
+mysql> desc dept;
++-----------+----------+------+-----+---------+-------+
+| Field     | Type     | Null | Key | Default | Extra |
++-----------+----------+------+-----+---------+-------+
+| name      | char(20) | YES  |     | NULL    |       |
+| dept_no   | int(10)  | NO   | PRI | 0       |       |
+| dept_head | char(20) | YES  |     | NULL    |       |
++-----------+----------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> use course;
+Database changed
+mysql> dept course;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'dept course' at line 1
+mysql> desc course;
++-----------+----------+------+-----+---------+-------+
+| Field     | Type     | Null | Key | Default | Extra |
++-----------+----------+------+-----+---------+-------+
+| name      | char(20) | YES  |     | NULL    |       |
+| course_no | int(10)  | NO   | PRI | 0       |       |
+| dept      | char(20) | YES  |     | NULL    |       |
++-----------+----------+------+-----+---------+-------+
+3 rows in set (0.02 sec)
