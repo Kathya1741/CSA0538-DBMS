@@ -1,0 +1,142 @@
+mysql> use student;
+Database changed
+mysql> select*from student
+    -> ;
++---------+--------+--------+------+
+| name    | reg_no | gender | dept |
++---------+--------+--------+------+
+| sravani |      1 | f      | EEE  |
+| kathya  |      2 | f      | cse  |
+| likhi   |      3 | f      | cse  |
+| pandu   |      4 | m      | cse  |
+| vishwa  |      5 | m      | cse  |
++---------+--------+--------+------+
+5 rows in set (0.00 sec)
+
+mysql> use faculty;
+Database changed
+mysql> select*from faculty;
++------+--------+--------+-------+
+| name | fac_no | gender | dept  |
++------+--------+--------+-------+
+| babu |     11 | m      | maths |
++------+--------+--------+-------+
+1 row in set (0.00 sec)
+
+mysql> insert into faculty values('ramu','12','math');
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> insert into faculty values('ramu','12','m','math');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select*from faculty;
++------+--------+--------+-------+
+| name | fac_no | gender | dept  |
++------+--------+--------+-------+
+| babu |     11 | m      | maths |
+| ramu |     12 | m      | math  |
++------+--------+--------+-------+
+2 rows in set (0.00 sec)
+
+mysql> use dept;
+Database changed
+mysql> desc dept;
++-----------+----------+------+-----+---------+-------+
+| Field     | Type     | Null | Key | Default | Extra |
++-----------+----------+------+-----+---------+-------+
+| name      | char(20) | YES  |     | NULL    |       |
+| dept_no   | int(10)  | NO   | PRI | 0       |       |
+| dept_head | char(20) | YES  |     | NULL    |       |
++-----------+----------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> insert into dept values('cse','21','rethu');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into dept values('cse','21','santhosh');
+ERROR 1062 (23000): Duplicate entry '21' for key 'PRIMARY'
+mysql> insert into dept values('cse','22','santhosh');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select*from faculty;
+ERROR 1146 (42S02): Table 'dept.faculty' doesn't exist
+mysql> select*from dept;
++------+---------+-----------+
+| name | dept_no | dept_head |
++------+---------+-----------+
+| cse  |      21 | rethu     |
+| cse  |      22 | santhosh  |
++------+---------+-----------+
+2 rows in set (0.00 sec)
+
+mysql> use course;
+Database changed
+mysql> desc course;
++-----------+----------+------+-----+---------+-------+
+| Field     | Type     | Null | Key | Default | Extra |
++-----------+----------+------+-----+---------+-------+
+| name      | char(20) | YES  |     | NULL    |       |
+| course_no | int(10)  | NO   | PRI | 0       |       |
+| dept      | char(20) | YES  |     | NULL    |       |
++-----------+----------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+mysql> insert into course values('c++','31','cse');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into course values('java','32','cse');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select*from faculty;
+ERROR 1146 (42S02): Table 'course.faculty' doesn't exist
+mysql> select*from course;
++------+-----------+------+
+| name | course_no | dept |
++------+-----------+------+
+| c++  |        31 | cse  |
+| java |        32 | cse  |
++------+-----------+------+
+2 rows in set (0.00 sec)
+
+mysql> use student;
+Database changed
+mysql> select*from student;
++---------+--------+--------+------+
+| name    | reg_no | gender | dept |
++---------+--------+--------+------+
+| sravani |      1 | f      | EEE  |
+| kathya  |      2 | f      | cse  |
+| likhi   |      3 | f      | cse  |
+| pandu   |      4 | m      | cse  |
+| vishwa  |      5 | m      | cse  |
++---------+--------+--------+------+
+5 rows in set (0.00 sec)
+
+mysql> update student set reg_no = 1921143 where reg_no = 192111435;
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+mysql> select*from student;
++---------+--------+--------+------+
+| name    | reg_no | gender | dept |
++---------+--------+--------+------+
+| sravani |      1 | f      | EEE  |
+| kathya  |      2 | f      | cse  |
+| likhi   |      3 | f      | cse  |
+| pandu   |      4 | m      | cse  |
+| vishwa  |      5 | m      | cse  |
++---------+--------+--------+------+
+5 rows in set (0.00 sec)
+
+mysql>   delete from student where reg_no = '4';
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select*from student;
++---------+--------+--------+------+
+| name    | reg_no | gender | dept |
++---------+--------+--------+------+
+| sravani |      1 | f      | EEE  |
+| kathya  |      2 | f      | cse  |
+| likhi   |      3 | f      | cse  |
+| vishwa  |      5 | m      | cse  |
++---------+--------+--------+------+
+4 rows in set (0.00 sec)
