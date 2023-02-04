@@ -1,0 +1,217 @@
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| test               |
++--------------------+
+4 rows in set (0.00 sec)
+
+mysql> create database student;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> create database faculty;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> create database dept;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> create database course;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| course             |
+| dept               |
+| faculty            |
+| mysql              |
+| performance_schema |
+| student            |
+| test               |
++--------------------+
+8 rows in set (0.00 sec)
+
+mysql> use student;
+Database changed
+mysql> create table student(name char(20),reg_no int(10),gender char(20));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> use faculty;
+Database changed
+mysql> create table faculty(name char(20),fac_no int(10),gender char(20));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> use dept;
+Database changed
+mysql> create table dept(name char(20),dept_no int(10));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> use course;
+Database changed
+mysql> create table course(name char(20),course_no int(10));
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> use student;
+Database changed
+mysql> desc student;
++--------+----------+------+-----+---------+-------+
+| Field  | Type     | Null | Key | Default | Extra |
++--------+----------+------+-----+---------+-------+
+| name   | char(20) | YES  |     | NULL    |       |
+| reg_no | int(10)  | YES  |     | NULL    |       |
+| gender | char(20) | YES  |     | NULL    |       |
++--------+----------+------+-----+---------+-------+
+3 rows in set (0.02 sec)
+
+mysql> use faculty;
+Database changed
+mysql> desc faculty;
++--------+----------+------+-----+---------+-------+
+| Field  | Type     | Null | Key | Default | Extra |
++--------+----------+------+-----+---------+-------+
+| name   | char(20) | YES  |     | NULL    |       |
+| fac_no | int(10)  | YES  |     | NULL    |       |
+| gender | char(20) | YES  |     | NULL    |       |
++--------+----------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> use dept;
+Database changed
+mysql> desc dept;
++---------+----------+------+-----+---------+-------+
+| Field   | Type     | Null | Key | Default | Extra |
++---------+----------+------+-----+---------+-------+
+| name    | char(20) | YES  |     | NULL    |       |
+| dept_no | int(10)  | YES  |     | NULL    |       |
++---------+----------+------+-----+---------+-------+
+2 rows in set (0.02 sec)
+
+mysql> use dept;
+Database changed
+mysql>
+mysql> use course;
+Database changed
+mysql> desc course;
++-----------+----------+------+-----+---------+-------+
+| Field     | Type     | Null | Key | Default | Extra |
++-----------+----------+------+-----+---------+-------+
+| name      | char(20) | YES  |     | NULL    |       |
+| course_no | int(10)  | YES  |     | NULL    |       |
++-----------+----------+------+-----+---------+-------+
+2 rows in set (0.01 sec)
+
+mysql> use student;
+Database changed
+mysql> alter table student add dept char(20);
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> use faculty;
+Database changed
+mysql> alter table faculty add dept char(20);
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> use dept;
+Database changed
+mysql> alter table dept add dept_head char(20);
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> use course;
+Database changed
+mysql> alter table course add dept char(20);
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> use student;
+Database changed
+mysql> desc student;
++--------+----------+------+-----+---------+-------+
+| Field  | Type     | Null | Key | Default | Extra |
++--------+----------+------+-----+---------+-------+
+| name   | char(20) | YES  |     | NULL    |       |
+| reg_no | int(10)  | YES  |     | NULL    |       |
+| gender | char(20) | YES  |     | NULL    |       |
+| dept   | char(20) | YES  |     | NULL    |       |
++--------+----------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> use faculty;
+Database changed
+mysql> desc faculty;
++--------+----------+------+-----+---------+-------+
+| Field  | Type     | Null | Key | Default | Extra |
++--------+----------+------+-----+---------+-------+
+| name   | char(20) | YES  |     | NULL    |       |
+| fac_no | int(10)  | YES  |     | NULL    |       |
+| gender | char(20) | YES  |     | NULL    |       |
+| dept   | char(20) | YES  |     | NULL    |       |
++--------+----------+------+-----+---------+-------+
+4 rows in set (0.02 sec)
+
+mysql> use dept;
+Database changed
+mysql> desc dept;
++-----------+----------+------+-----+---------+-------+
+| Field     | Type     | Null | Key | Default | Extra |
++-----------+----------+------+-----+---------+-------+
+| name      | char(20) | YES  |     | NULL    |       |
+| dept_no   | int(10)  | YES  |     | NULL    |       |
+| dept_head | char(20) | YES  |     | NULL    |       |
++-----------+----------+------+-----+---------+-------+
+3 rows in set (0.02 sec)
+
+mysql> use course;
+Database changed
+mysql> desc course;
++-----------+----------+------+-----+---------+-------+
+| Field     | Type     | Null | Key | Default | Extra |
++-----------+----------+------+-----+---------+-------+
+| name      | char(20) | YES  |     | NULL    |       |
+| course_no | int(10)  | YES  |     | NULL    |       |
+| dept      | char(20) | YES  |     | NULL    |       |
++-----------+----------+------+-----+---------+-------+
+3 rows in set (0.02 sec)
+
+mysql> create database sravani;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| course             |
+| dept               |
+| faculty            |
+| mysql              |
+| performance_schema |
+| sravani            |
+| student            |
+| test               |
++--------------------+
+9 rows in set (0.00 sec)
+
+mysql> drop database sravani;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| course             |
+| dept               |
+| faculty            |
+| mysql              |
+| performance_schema |
+| student            |
+| test               |
++--------------------+
+8 rows in set (0.00 sec)
